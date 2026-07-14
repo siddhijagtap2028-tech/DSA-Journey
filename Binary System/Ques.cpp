@@ -26,7 +26,6 @@ int main(){
     BinaryDecimal(110010);
     cout<<endl;
     BinaryDecimal(110011);
-
     return 0;
 
 }
