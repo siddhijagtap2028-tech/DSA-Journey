@@ -34,5 +34,6 @@ bool isprime2(int num){
 
 int main(){
     cout<<isprime2(6);
+    cout<<isprime(6);
     return 0;
 }
