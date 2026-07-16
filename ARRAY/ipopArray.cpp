@@ -22,7 +22,7 @@ int main(){
         cin>>marks[i];
     }
     for(int i =0 ; i<=m-1 ; i++){
-        cout<<"marks"<<marks[i]<<endl;
+        cout<<"marks "<<marks[i]<<endl;
     }
     cout<<endl;
 
