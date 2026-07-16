@@ -1,7 +1,9 @@
 #include<iostream>
 using namespace std;
 
-//oass by refer  changes are made in original address itself
+//pass by refer changes are made in original address itself
+//variable declared
+//address of variable stored in pointer
 void changeA(int *ptr){
     *ptr=20;
     cout<<*ptr<<endl;
