@@ -12,18 +12,19 @@ int BinarySearch(int arr[],int n,int key){
             return mid;
         }
         else if(arr[mid] > key){
-            return end = mid -1;
+            end = mid -1;
         }
         else{
-            return st = mid+1;
+            st = mid+1;
         }
     }
+    return -1;
     
 }
 int main(){
     int arr[5] = {3,5,9,13,27};
     int n = sizeof(int)/sizeof(arr);
-    cout<<"key at index "<<BinarySearch(arr,5,9);
+    cout<<"key at index "<<BinarySearch(arr,5,10);
     
     return 0;
 }
