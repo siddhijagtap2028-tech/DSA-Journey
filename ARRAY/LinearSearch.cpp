@@ -13,7 +13,7 @@ int linear(int arr[],int n,int key){
 
 
 int main(){
-    int arr[5] = {1,4,0,8,9};
+    int arr[6] = {3,7,0,-2,5,9};
     int n = sizeof(int) / sizeof(arr);
-    cout<<"key at index "<<linear(arr,5,9);
+    cout<<"key at index "<<linear(arr,6,2);
 }
