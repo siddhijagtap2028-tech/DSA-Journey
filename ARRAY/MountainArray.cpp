@@ -5,7 +5,7 @@ using namespace std;
 int mountainArray(int arr[],int n){
     int start = 0 ;
     int end = n -1;
-    int mid = (start+end)/2;
+    int mid = start+(end - start)/2;
     while(start<end){
         if(arr[mid] < arr[mid+1]){
             start = mid + 1;
@@ -13,17 +13,16 @@ int mountainArray(int arr[],int n){
         else{
             end = mid;
         }
-        mid = (start+end)/2;
+        mid = start+(end - start)/2;
 
     }
     return start;
-    
     
 }
 
 int main(){
 
-    int arr[5] = {2,3,4,5};
+    int arr[4] = {0,10,5,2};
 
     int n = 4;
 
