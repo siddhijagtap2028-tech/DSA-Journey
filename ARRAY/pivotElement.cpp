@@ -1,5 +1,7 @@
 #include<iostream>
 using namespace std;
+
+//smallest element index
 int pivotElement(int arr[],int n){
 
     int s=0;
@@ -18,7 +20,7 @@ return s;
     
 }
 int main(){
-    int arr[7] = {4,5,6,7,0,1,2};
+    int arr[7] = {4,5,1,2,3};
     int n = sizeof(arr)/sizeof(int);
     cout<<"pivot element at index "<<pivotElement(arr,7);
 }
