@@ -14,13 +14,13 @@ int pivotElement(int arr[],int n){
         else{
             end=mid;
         }
-        mid=s+(end-s)/2; 
+        mid=s+(end-s)/2;
 }
 return s;
     
 }
 int main(){
-    int arr[7] = {4,5,1,2,3};
+    int arr[8] = {6,7,8,9,0,1,2,23};
     int n = sizeof(arr)/sizeof(int);
-    cout<<"pivot element at index "<<pivotElement(arr,7);
+    cout<<"pivot element in rotated sorted array at index "<<pivotElement(arr,8);
 }

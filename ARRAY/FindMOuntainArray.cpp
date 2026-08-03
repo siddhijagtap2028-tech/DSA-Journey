@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-//peak element largest
+//find in mountain array
 
 int peak(int arr[],int n){
      int start = 0;
