@@ -1,52 +1,72 @@
 #include<iostream>
 using namespace std;
 
-int search(int nums[], int n, int target)
-{
-    int start = 0;
-    int end = n - 1;
-
-    while(start <= end)
-    {
-        int mid = start + (end - start) / 2;
-
-        if(nums[mid] == target)
-            return mid;
-
-        // Left half is sorted
-        if(nums[start] <= nums[mid])
-        {
-            if(target >= nums[start] && target < nums[mid])
-                end = mid - 1;
-            else
-                start = mid + 1;
+int peak(int arr[],int n){
+    int st=0;
+    int end=n-1;
+    int mid=st+(end-st)/2;
+    while(st<end){
+        if(arr[mid]<arr[mid+1]){
+            st = mid+1;
         }
-
-        // Right half is sorted
-        else
-        {
-            if(target > nums[mid] && target <= nums[end])
-                start = mid + 1;
-            else
-                end = mid - 1;
+        else{
+            end=mid;
         }
+        mid=st+(end-st)/2;
     }
+    return st;
 
-    return -1;
 }
 
-int main()
-{
-    int nums[] = {4,5,6,7,0,1,2};
-    int n = 7;
-    int target = 0;
+int fo(int arr[],int n,int target,int st,int end){
+    st=0,end=n-1;
+    int mid=st+(end-st)/2;
+    int ans=-1;
+    while(st<=end){
+        if(arr[mid] == target){
+            ans=mid;
+            end=mid-1;
 
-    int ans = search(nums, n, target);
+        }
+        else if(arr[mid]>target){
+            end=mid-1;
+        }
+        else{
+            st=mid+1;
+        }
+        mid=st+(end-st)/2;
+    }
+    return ans;
 
-    if(ans == -1)
-        cout << "Element not found";
-    else
-        cout << "Element found at index " << ans;
+}
 
-    return 0;
+int lo(int arr[],int n,int target,int st,int end){
+    st=0,end=n-1;
+    int mid=st+(end-st)/2;
+    int ans=-1;
+    while(st<=end){
+        if(arr[mid] == target){
+            ans=mid;
+            st=mid+1;
+
+        }
+        else if(arr[mid]>target){
+            st=mid+1;
+        }
+        else{
+            end=mid-1;
+        }
+        mid=st+(end-st)/2;
+    }
+    return ans;
+
+}
+int main(){
+    int arr[7]={1,2,3,3,7,8,5};
+    int n =7;
+    int peaked=peak(arr,n);
+    cout<<peaked;
+    cout<<fo(arr,n,3,0,n-1)<<endl;
+    cout<<lo(arr,n,3,0,n-1)<<endl;
+
 }
