@@ -79,3 +79,6 @@ int main(){
 
     return 0;
 }
+
+//"The algorithm is already optimal at O(log n) time and O(1) space.
+// I can only improve the code readability, not the asymptotic complexity."
