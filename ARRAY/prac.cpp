@@ -1,72 +1,51 @@
 #include<iostream>
 using namespace std;
-
-int peak(int arr[],int n){
-    int st=0;
-    int end=n-1;
-    int mid=st+(end-st)/2;
-    while(st<end){
-        if(arr[mid]<arr[mid+1]){
-            st = mid+1;
+bool ispos(int arr[],int n,int m,int mid){
+    int studc=1;
+    int pagesum=0;
+    for(int i=0;i<n ;i++){
+        if(arr[i]+pagesum <= mid){
+        pagesum+=arr[i];
         }
         else{
-            end=mid;
+            studc++;
+            if(studc > m){
+                return false;
+            }
+            
+            pagesum=arr[i];
         }
-        mid=st+(end-st)/2;
     }
-    return st;
-
+    return true;
+    
 }
-
-int fo(int arr[],int n,int target,int st,int end){
-    st=0,end=n-1;
-    int mid=st+(end-st)/2;
+int bookallo(int arr[],int n,int m){
+    int sum =0;
+    for(int i=0;i<n ;i++){
+        sum+=arr[i];
+    }
+    int s=0,end=sum;
     int ans=-1;
-    while(st<=end){
-        if(arr[mid] == target){
+    while(s<=end){
+        int mid =s+(end-s)/2;
+        if(ispos(arr,n,m,mid) ){
             ans=mid;
-            end=mid-1;
-
-        }
-        else if(arr[mid]>target){
-            end=mid-1;
+            end = mid-1;
         }
         else{
-            st=mid+1;
+            s=mid+1;
         }
-        mid=st+(end-st)/2;
+
     }
     return ans;
-
-}
-
-int lo(int arr[],int n,int target,int st,int end){
-    st=0,end=n-1;
-    int mid=st+(end-st)/2;
-    int ans=-1;
-    while(st<=end){
-        if(arr[mid] == target){
-            ans=mid;
-            st=mid+1;
-
-        }
-        else if(arr[mid]>target){
-            st=mid+1;
-        }
-        else{
-            end=mid-1;
-        }
-        mid=st+(end-st)/2;
-    }
-    return ans;
-
 }
 int main(){
-    int arr[7]={1,2,3,3,7,8,5};
-    int n =7;
-    int peaked=peak(arr,n);
-    cout<<peaked;
-    cout<<fo(arr,n,3,0,n-1)<<endl;
-    cout<<lo(arr,n,3,0,n-1)<<endl;
+    int arr[5]={10,20,30,40};
+    int n =5;
+    int m =2;
+    int result = bookallo(arr,n,m);
+    cout<<result;
+    return 0;
+
 
 }
