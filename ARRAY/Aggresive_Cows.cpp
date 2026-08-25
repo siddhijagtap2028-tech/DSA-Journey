@@ -20,14 +20,11 @@ bool ispos(int arr[],int n,int k,int mid){
     }
     return false;
 }
+
 int aggreCows(int arr[],int n,int k){
     sort(arr,arr+n);
     int s = 0;
-    int maxi = -1;
-    for(int i=0;i<n;i++){
-        maxi=max(arr[i],maxi);
-    }
-    int end = maxi;
+    int end = arr[n-1];
     int ans=-1;
     while(s<=end){
         int mid=s+(end-s)/2;
@@ -41,6 +38,8 @@ int aggreCows(int arr[],int n,int k){
     }
     return ans;
 }
+
+ 
 int main(){
     int arr[5] = {4,2,1,3,6};
     int n = 5;
